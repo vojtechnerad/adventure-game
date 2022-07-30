@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cz.vse.java.nerv01.adventura.main.GameScreenController">
+   <bottom>
+      <ButtonBar prefHeight="63.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+        <buttons>
+            <Button fx:id="buttonPutOnMask" mnemonicParsing="false" onAction="#putOnMask" text="Nasaď roušku" />
+            <Button fx:id="buttonWithdrawMoney" mnemonicParsing="false" onAction="#withdrawMoney" text="Vyber peníze" />
+            <Button fx:id="buttonLoad" mnemonicParsing="false" onAction="#load" text="Nalož" />
+            <Button fx:id="buttonPay" mnemonicParsing="false" onAction="#pay" text="Zaplať" />
+        </buttons>
+      </ButtonBar>
+   </bottom>
+   <center>
+      <TextArea fx:id="textOutput" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+   </center>
+   <top>
+      <VBox prefHeight="133.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <MenuBar>
+              <menus>
+                <Menu mnemonicParsing="false" text="Hra">
+                  <items>
+                    <MenuItem mnemonicParsing="false" onAction="#newGame" text="Nová hra" />
+                        <MenuItem mnemonicParsing="false" onAction="#showHelp" text="Nápověda" />
+                        <MenuItem mnemonicParsing="false" onAction="#endApplication" text="Konec" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Region prefHeight="200.0" prefWidth="200.0" />
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <ImageView fitHeight="227.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@map.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="playermodel1" fitHeight="150.0" fitWidth="60.0" layoutX="520.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@playermodel1.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="playermodel2" fitHeight="150.0" fitWidth="60.0" layoutX="14.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@playermodel2.png" />
+                           </image>
+                        </ImageView>
+                     </children></AnchorPane>
+                  <Region prefHeight="200.0" prefWidth="200.0" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </top>
+   <right>
+      <VBox prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label text="Zůstatek hotovosti" />
+            <Label fx:id="currentBalance" text="currencyToBeSet" />
+            <Label text="Obsah košíku" />
+            <ListView fx:id="itemsInShoppingCart" prefHeight="200.0" prefWidth="200.0" />
+            <Label text="Obsah batohu" />
+            <ListView fx:id="itemsInBackpack" prefHeight="200.0" prefWidth="200.0" />
+            <Label text="Obsah auta" />
+            <ListView fx:id="itemsInCar" prefHeight="200.0" prefWidth="200.0" />
+         </children>
+      </VBox>
+   </right>
+   <left>
+      <VBox prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label text="Seznam sousedních lokací" />
+            <ListView fx:id="listOfAdjacentAreas" onMouseClicked="#selectedArea" />
+            <Label text="Seznam předmětů v současné lokaci" />
+            <ListView fx:id="itemsInArea" onMouseClicked="#selectedItem" prefHeight="200.0" prefWidth="200.0" />
+         </children>
+      </VBox>
+   </left>
+</BorderPane>
